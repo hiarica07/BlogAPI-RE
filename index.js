@@ -27,13 +27,17 @@ require("./src/configs/dbConnection")
 /* -------------------------- */
 
 
+/* -------------------------- */
+// Routes
+app.all("/",(req,res)=>{
+    res.send("WELLCOME ^^")
+})
+/* -------------------------- */
 
 
 /* -------------------------- */
 // Error Handler
-
 app.use(require("./src/middlewares/errorHandler"))
-
 /* -------------------------- */
 
 app.listen(PORT,()=> console.log("Running : http//127.0.0.1:"+ PORT))
