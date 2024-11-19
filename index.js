@@ -16,6 +16,15 @@ const PORT = process.env.PORT || 8000
 // Middlewares:
 app.use(express.json())
 require('express-async-errors')
+
+
+/* -------------------------- */
+
+// Cookie-Session (login-logout holder)
+const session = require("cookie-session")
+app.use(session({
+    secret: process.env.SECRET_KEY,
+}))
 /* -------------------------- */
 
 
@@ -30,7 +39,13 @@ require("./src/configs/dbConnection")
 /* -------------------------- */
 // Routes
 app.all("/",(req,res)=>{
-    res.send("WELLCOME ^^")
+    res.send({
+        
+    message: "WELLCOME ^^",
+    session: req.session
+    
+    })
+    
 })
 
 app.use("/blog",require("./src/routes/blog"))
