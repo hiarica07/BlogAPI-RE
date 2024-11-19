@@ -50,6 +50,7 @@ app.all("/",(req,res)=>{
 
 app.use("/blog",require("./src/routes/blog"))
 app.use("/user",require("./src/routes/user"))
+app.use("/auth",require("./src/routes/auth"))
 /* -------------------------- */
 
 
