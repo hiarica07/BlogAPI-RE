@@ -26,11 +26,10 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 /* -------------------------- */
-
-
-
-
+app.use(require("./src/middlewares/authentication"))
 /* -------------------------- */
+
+
 // DB connection
 require("./src/configs/dbConnection")
 /* -------------------------- */
@@ -42,7 +41,8 @@ app.all("/",(req,res)=>{
     res.send({
         
     message: "WELLCOME ^^",
-    session: req.session
+    session: req.session,
+    isLogin : req.session ? true : false
     
     })
     
