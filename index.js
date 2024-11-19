@@ -32,6 +32,9 @@ require("./src/configs/dbConnection")
 app.all("/",(req,res)=>{
     res.send("WELLCOME ^^")
 })
+
+app.use("/blog",require("./src/routes/blog"))
+app.use("/user",require("./src/routes/user"))
 /* -------------------------- */
 
 

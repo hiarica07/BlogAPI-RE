@@ -19,7 +19,7 @@ const BlogCategorySchema = new Schema({
 const BlogPostSchema = new Schema({
 
     categoryId: {
-        type:Schema.Type.ObjectId,
+        type:Schema.Types.ObjectId,
         ref: "BlogCategory",
         required: true
     },
