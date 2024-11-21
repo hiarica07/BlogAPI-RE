@@ -26,9 +26,11 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 /* -------------------------- */
+//AUth
 app.use(require("./src/middlewares/authentication"))
 /* -------------------------- */
-
+// Query handler
+app.use(require("./src/middlewares/queryHandler"))
 
 // DB connection
 require("./src/configs/dbConnection")
